@@ -49,10 +49,10 @@ const tabsAppender = (selector) => {
    var element = document.getElementsByClassName(selector)[0];
    // append child into selector element
    
-   LZString = `<http://localhost:5000/api/topics>`;
+   LZString = `http://localhost:5000/api/topics`;
    fetch(url_string).then((r)=>{r.text().then((d)=>{
        // split the content from comma to get array
-       let content = d.split("");
+       let content = d.split(",");
        console.log(content);
        topics_data=tabs(content);
        element.appendChild(topics_data);

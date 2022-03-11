@@ -39,6 +39,31 @@ return newsHeader
 }
 
 const headerAppender = (selector) => {
+
+  //enclosing in try catch as selector may not be valid
+  try {
+    const target_element = document.querySelector(selector)
+
+    if (target_element == null)
+      throw Error(`target element ${selector} not found`)
+
+    //create the header element with class body
+    //We observe in the Header() function that the final element gets appended to the document body
+    Header("header-1", "11/02/21", "#1")
+
+    //now we will search for this element under the body tag with class "header" and detach it from the dom
+    let header_element = document.querySelector("div.header")
+
+    //detach the element from its parent
+    //header_element = header_element.parentElement.removeChild(header_element)
+
+    //attach it again under the target_element
+    target_element.appendChild(header_element)
+
+  }
+  catch (e) {
+    console.error(e.message)
+  }
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.
