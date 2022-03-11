@@ -15,10 +15,11 @@ module.exports = {
       template: 'src/index.html',
     }),
   ],
+  
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    compress: true,
-    port: 3000,
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
   },
   module: {
     rules: [
