@@ -10,15 +10,20 @@ newsHeader.appendChild(newsDate);
 newsHeader.appendChild(newsTitle);
 newsHeader.appendChild(newsTemp);
 
-
+//text
 newsDate.textContent = date;
 newsTitle.textContent = title;
 newsTemp.textContent = temp;
 
 
+//class name
+
+newsHeader.classList.add('header')
+newsDate.classList.add('date')
+newsTemp.classList.add('temp')
 
 
-
+return newsHeader
   // TASK 1
   // ---------------------
   // Implement this function taking `title`, `date` and `temp` as its 3 args and returning the markup below.
