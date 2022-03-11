@@ -1,26 +1,25 @@
+import axios from 'axios'
+
 const Header = (title, date, temp) => {
   
-const newsHeader = document.createElement('div');
-const newsDate = document.createElement('span');
-const newsTitle = document.createElement('h1');
-const newsTemp = document.createElement('span');
+  const headerDiv = document.createElement('div');
+  const dateSpan = document.createElement('span');
+  const headerH1 = document.createElement('h1');
+  const tempSpan = document.createElement('span');
 
-//Hierachy
-newsHeader.appendChild(newsDate);
-newsHeader.appendChild(newsTitle);
-newsHeader.appendChild(newsTemp);
+  headerDiv.classList.add('header');
+  dateSpan.classList.add('date');
+  tempSpan.classList.add('temp');
 
-//text
-newsDate.textContent = date;
-newsTitle.textContent = title;
-newsTemp.textContent = temp;
+  headerH1.textContent = title;
+  dateSpan.textContent = date;
+  tempSpan.textContent = temp;
 
+  headerDiv.appendChild(dateSpan);
+  headerDiv.appendChild(headerH1);
+  headerDiv.appendChild(tempSpan);
 
-//class name
-
-newsHeader.classList.add('header')
-newsDate.classList.add('date')
-newsTemp.classList.add('temp')
+  return headerDiv;
 
 
 return newsHeader
