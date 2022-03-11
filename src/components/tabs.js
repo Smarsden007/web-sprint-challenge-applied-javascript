@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const topicsArray=["javascript","bootstrap","technology","python"]
     const tabs=(topics)=>{
         const topicsWrapper= document.createElement("div")
@@ -45,20 +47,17 @@ return topicsWrapper;
 };
 
 const tabsAppender = (selector) => {
-   // get element property by css selector class name
-   var element = document.getElementsByClassName(selector)[0];
-   // append child into selector element
    
-   LZString = `http://localhost:5000/api/topics`;
-   fetch(url_string).then((r)=>{r.text().then((d)=>{
-       // split the content from comma to get array
-       let content = d.split(",");
-       console.log(content);
-       topics_data=tabs(content);
-       element.appendChild(topics_data);
-   })}) 
-  
-  
+  axios.get('http://localhost:5000/api/topics')
+  .then(res => {
+    console.log(res)
+    const tabs = Tabs(res.data.topics)
+    const selected = document.querySelector(selector)
+    selected.appendChild(tabs)
+  })
+  .catch(err => {
+    console.error(err)
+  })
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
