@@ -1,4 +1,33 @@
+const topicsArray=["javascript","bootstrap","technology","python"]
+    const tabs=(topics)=>{
+        const topicsWrapper= document.createElement("div")
+        topics.forEach(linkText => {
+            const link=document.createElement("div")
+            topicsWrapper.appendChild(link);
+            link.textContent=linkText;
+        });
+        topicsWrapper.classList.add("topics")
+        return topicsWrapper;
+    }
+
 const Tabs = (topics) => {
+
+const topicsWrapper =  document.createElement("div");
+
+topics.forEach((linkText) => {
+  const link = document.createElement("div");
+  topicsWrapper.appendChild(link);
+  link.textContent = linkText;
+});
+
+topicsWrapper.classList.add("topics");
+
+return topicsWrapper;
+
+
+
+
+
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -13,9 +42,23 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-}
+};
 
 const tabsAppender = (selector) => {
+   // get element property by css selector class name
+   var element = document.getElementsByClassName(selector)[0];
+   // append child into selector element
+   
+   LZString = `<http://localhost:5000/api/topics>`;
+   fetch(url_string).then((r)=>{r.text().then((d)=>{
+       // split the content from comma to get array
+       let content = d.split("");
+       console.log(content);
+       topics_data=tabs(content);
+       element.appendChild(topics_data);
+   })}) 
+  
+  
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.
