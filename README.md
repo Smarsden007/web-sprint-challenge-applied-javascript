@@ -72,4 +72,4 @@ When you create an event listener this is waiting for that evenet to take place 
 It allows you to easily access them within a dom and make changes with very little effort.
 
 5. What is a component?
-They are funtions that return HTMl within a JS file.
+They are funtions that return HTMl within a JS file, it completes this action by having html, css and javascrip encapsulated in itself.
